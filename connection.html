@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PomeCLI Connection Guide</title>
+    <meta name="description" content="How to connect PomeCLI to your Mac or SSH server.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <div class="shell masthead">
+        <a class="brand" href="index.html">
+          <img src="icon.png" alt="" width="44" height="44">
+          <span>
+            <strong>PomeCLI</strong>
+            <span>Connection Guide</span>
+          </span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="connection.html">Connection Guide</a>
+          <a href="support.html">Support</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="shell">
+        <article class="panel">
+          <h1>PomeCLI 接続方法ガイド</h1>
+          <p class="meta">Last updated: 2026-06-22</p>
+          <p class="lead">PomeCLI は、iPhone / iPad から自分の Mac または SSH サーバーへ接続するアプリです。Tailscale は必須ではありません。</p>
+
+          <h2>まず一番かんたんな方法: 家のWi-Fiで使う</h2>
+          <p>iPhone / iPad と Mac が同じWi-Fiにいる場合は、MacのローカルIPアドレスへSSH接続できます。外部サービスやVPNは不要です。</p>
+          <ul>
+            <li>Macで「システム設定」→「一般」→「共有」を開く。</li>
+            <li>「リモートログイン」をオンにする。</li>
+            <li>MacのローカルIPアドレスを確認する。例: <code>192.168.1.23</code></li>
+            <li>PomeCLIにホスト、ポート、ユーザー名、SSHパスワードを入力する。</li>
+          </ul>
+          <p>この方法は家やオフィスの中で使う場合に向いています。外出先からは通常つながりません。</p>
+
+          <h2>外から使いたい場合</h2>
+          <p>外出先から接続したい場合は、iPhone / iPad からSSH先へ到達できるネットワーク経路が必要です。代表的な選択肢は3つです。</p>
+
+          <h3>1. TailscaleなどのVPN</h3>
+          <p>自宅Macに外からつなぎたい場合のおすすめです。ルーターのポート開放をせずに、iPhone / iPad と Mac を同じプライベートネットワークにできます。</p>
+          <ul>
+            <li>向いている人: 自宅Macを外出先から使いたい人。</li>
+            <li>利点: ルーター設定が不要で、公開インターネットへSSHを直接出さずに済む。</li>
+            <li>注意: Tailscaleなどのアプリ導入とアカウント設定が必要。</li>
+          </ul>
+
+          <h3>2. VPS / 公開SSHサーバー</h3>
+          <p>クラウド上のLinuxサーバーへ接続する方法です。開発作業や常時稼働するtmux環境に向いています。</p>
+          <ul>
+            <li>向いている人: VPSやクラウドサーバーを使い慣れている人。</li>
+            <li>利点: 外出先から安定して接続しやすい。</li>
+            <li>注意: サーバー契約、SSH設定、セキュリティ管理が必要。</li>
+          </ul>
+
+          <h3>3. 自宅ルーターのポート開放</h3>
+          <p>自宅MacのSSHポートをインターネットへ公開する方法です。可能ですが、初心者にはおすすめしません。</p>
+          <ul>
+            <li>向いている人: SSH、ファイアウォール、ルーター設定を理解している人。</li>
+            <li>利点: 追加のVPNサービスなしで接続できる。</li>
+            <li>注意: 設定を誤るとセキュリティリスクが高くなります。強い認証、アクセス制限、定期的な管理が必要です。</li>
+          </ul>
+
+          <h2>おすすめの選び方</h2>
+          <ul>
+            <li>家の中だけで使う: 同じWi-FiでMacのローカルIPへ接続。</li>
+            <li>外から自宅Macを使う: TailscaleなどのVPN。</li>
+            <li>開発用の常時稼働環境がほしい: VPS / 公開SSHサーバー。</li>
+            <li>ポート開放: 仕組みを理解している場合だけ。</li>
+          </ul>
+
+          <h2>English Summary</h2>
+          <p>Tailscale is not required. PomeCLI only needs your iPhone / iPad to reach your SSH destination.</p>
+          <ul>
+            <li>At home: connect to your Mac's local IP address on the same Wi-Fi network.</li>
+            <li>Outside your home: use a VPN such as Tailscale, a VPS / public SSH server, or your own carefully managed public SSH setup.</li>
+            <li>Port forwarding can work, but it requires careful security management and is not recommended for beginners.</li>
+          </ul>
+        </article>
+      </div>
+    </main>
+
+    <footer>
+      <div class="shell">Copyright 2026 PomeCLI. Contact: firoimilky628@gmail.com</div>
+    </footer>
+  </body>
+</html>
